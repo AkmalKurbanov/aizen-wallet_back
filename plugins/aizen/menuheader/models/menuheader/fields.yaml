@@ -1,0 +1,90 @@
+fields:
+    item:
+        label: 'Пункт меню'
+        span: auto
+        type: text
+    basefile:
+        label: 'Ссылка пункта меню'
+        showSearch: true
+        span: auto
+        type: dropdown
+    link:
+        label: 'Ссылка пункта меню'
+        span: auto
+        type: text
+    slider_tabs:
+        label: 'Слайдер и табы'
+        span: right
+        type: switch
+        comment: 'Включить слайдер и табы в пункте меню'
+    inslide_item_list:
+        label: 'Содержимое пункта меню'
+        prompt: 'Добавить новый пункт'
+        style: default
+        span: full
+        type: repeater
+        form:
+            fields:
+                inside_item:
+                    label: 'Подпункт меню'
+                    span: left
+                    type: text
+                basefile:
+                    label: 'Ссылка пункта меню'
+                    showSearch: true
+                    span: auto
+                    type: dropdown
+                link_inside_item:
+                    label: 'Ссылка подпункта меню'
+                    span: right
+                    type: text
+                inslide_item_short_desc:
+                    label: 'Краткое описание подпункта меню'
+                    size: ''
+                    span: left
+                    type: textarea
+                inside_item_slide_list:
+                    label: 'Слайдер подкпункта меню'
+                    prompt: 'Добавить новый пункт'
+                    style: default
+                    span: auto
+                    type: repeater
+                    form:
+                        fields:
+                            slide_title:
+                                label: 'Заголовок слайда'
+                                span: left
+                                type: text
+                            slide_desc:
+                                label: 'Описание слайда'
+                                size: ''
+                                span: right
+                                type: textarea
+                            slide_img:
+                                label: 'Изображение слайда'
+                                mode: file
+                                span: left
+                                type: mediafinder
+                            slide_link:
+                                label: 'Ссылка (Подробнее)'
+                                span: right
+                                type: text
+                            basefile:
+                                label: 'Ссылка на страницу(кнопка "Подробнее")'
+                                showSearch: true
+                                span: auto
+                                type: dropdown
+                            is_target:
+                                label: 'target="_blank"'
+                                span: auto
+                                type: switch
+                                comment: 'Ссылка откроется в новом окне'
+                            section:
+                                label: Секция
+                                span: full
+                                type: section
+                            slide_is_active:
+                                label: Неактивно/Активно
+                                span: left
+                                type: switch
+                                comment: 'Показать или скрыть слайд'

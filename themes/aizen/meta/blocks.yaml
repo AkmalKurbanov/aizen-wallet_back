@@ -1,0 +1,639 @@
+textImg:
+  name: Секция с картиной и текстом
+  description: Секция с картиной и текстом
+  icon: icon-picture-o
+  fields:
+    section:
+      label: Секция
+      type: section
+    textImg_title_kind:
+      label: Заголовок
+      type: repeater
+      prompt: 'Добавить'
+      span: left
+      form:
+        fields:
+          textImg_title:
+            label: Часть заголовка
+            type: text
+            span: left
+            
+          textImg_title_type:
+            label: Градиент, цвет части заголовка
+            type: dropdown
+            span: right
+            
+          textImg_is_broke:
+            comment: Совершить перенос строки
+            label: "Нет/Да"
+            type: switch
+            span: left
+
+    textImg_desc:
+      label: Описание
+      type: richeditor
+      span: right
+    textImg_img:
+      label: Изображение
+      type: mediafinder
+      mode: image
+      span: left
+    textImg_is_big:
+      label: Удалить класс/Добавить класс
+      comment: Включить, если картинка выглядить очень большой(дополнительный класс оптимизирует картинку на 30%)
+      type: switch
+      span: right  
+    textImg_more_btn_text:
+      label: Текст кнопки
+      type: text
+      span: right
+    textImg_more:
+      label: Ссылка "Подробнее"
+      type: text
+      span: right
+    textImg_ask:
+      label: Ссылка-якорь на "Есть вопросы?"
+      comment: Показать или скрыть кнопку "Есть вопросы?"
+      type: switch
+      span: right
+    textImg_is_floated:
+      label: "Неактивно/Активно"
+      comment: Расстянуть по старанам 
+      type: switch
+      span: full
+    textImg_is_floatedRight:
+      label: "Неактивно/Активно"
+      comment: Прижать текст вправо 
+      type: switch
+      span: full
+    textImg_is_active:
+      label: "Неактивно/Активно"
+      comment: Показать или скрыть секцию
+      type: switch
+      span: full
+    
+titleText:
+  name: Секция с заголовком и текстом в две колонки
+  description: Заголовок слева, описание справа
+  icon: icon-picture-o
+  fields:
+    section:
+      label: Секция
+      type: section
+    titleText_title_kind:
+      label: Заголовок
+      type: repeater
+      prompt: 'Добавить'
+      span: left
+      form:
+        fields:
+          titleText_title:
+            label: Часть заголовка
+            type: text
+            span: left
+
+          titleText_title_type:
+            label: Градиент, цвет части заголовка
+            type: dropdown
+            span: right
+
+          titleText_is_broke:
+            label: "Нет/Да"
+            comment: Совершить перенос строки
+            type: switch
+            span: left
+
+
+    titleText_desc:
+      label: Описание
+      type: richeditor
+      span: right
+    titleText_more:
+      label: Ссылка "Подробнее"
+      type: text
+      span: right
+    titleText_ask:
+      label: Ссылка-якорь на "Есть вопросы?"
+      comment: Показать или скрыть кнопку "Есть вопросы?"
+      type: switch
+      span: right
+    section_hr:
+      type: section  
+      span: full  
+    titleText_is_active:
+      label: "Неактивно/Активно"
+      comment: Показать или скрыть секцию
+      type: switch
+      span: full  
+
+trippleBlock:
+  name: Секция с тремя нумерованными блоками
+  description: блок с тремя колонками, с всплыващим текстом при наведении
+  icon: icon-picture-o
+  fields:
+    section:
+      label: Секция
+      type: section
+    trippleBlock_item:
+      label: Items
+      type: repeater
+      prompt: 'Добавить'
+      span: full
+      form:
+        fields:
+          trippleBlock_title:
+            label: Заголовок
+            type: richeditor
+            span: left
+          trippleBlock_desc:
+            label: Описание
+            type: richeditor
+            span: right 
+          is_active:
+            label: "Неактивно/Активно"
+            type: switch
+            span: left
+    section_hr10:
+      type: section  
+      span: full         
+    trippleBlock_is_active:
+      label: "Неактивно/Активно"
+      comment: Показать или скрыть секцию
+      type: switch
+      span: left 
+          
+textImg_blur:
+  name: Секция с картиной и текстом на "заблюреном" фоне 
+  description: Секция с картиной и текстом на "заблюреном" фоне 
+  icon: icon-picture-o
+  fields:
+    section:
+      label: Секция
+      type: section
+
+    textImg_blur_title_kind:
+      label: Заголовок
+      type: repeater
+      prompt: 'Добавить'
+      span: left
+      form:
+        fields:
+          textImg_blur_title:
+            label: Часть заголовка
+            type: text
+            span: left
+
+          textImg_blur_title_type:
+            label: Градиент, цвет части заголовка
+            type: dropdown
+            span: right
+
+          textImg_blur_is_broke:
+            label: "Нет/Да"
+            comment: Совершить перенос строки
+            type: switch
+            span: left
+    textImg_blur_desc:
+      label: Описание
+      type: richeditor
+      span: right
+    textImg_blur_img:
+      label: Изображение
+      type: mediafinder
+      mode: image
+      span: left
+    textImg_blur_is_outBounds:
+      label: "Неактивно/Активно"
+      comment: Вывести картинку за границы блока
+      type: switch
+      span: right          
+    textImg_blur_btn_text:
+      label: Текст кнопки
+      type: text
+      span: right     
+    textImg_blur_btn_link:
+      label: Ссылка кнопки
+      comment: Кнопка не появится, пока не будет введена ссылка
+      type: text
+      span: right     
+    section_hr10:
+      type: section  
+      span: full  
+
+    textImg_blur_is_active:
+      label: "Неактивно/Активно"
+      comment: Показать или скрыть секцию
+      type: switch
+      span: left 
+
+titleSubtitle:
+  name: Секция с заголовком и подзаголовком 
+  description: Равнение по центру  
+  icon: icon-picture-o
+  fields:
+    section:
+      label: Секция
+      type: section
+
+    titleSubtitle_title_kind:
+      label: Заголовок
+      type: repeater
+      prompt: 'Добавить'
+      span: left
+      form:
+        fields:
+          titleSubtitle_title:
+            label: Часть заголовка
+            type: text
+            span: left
+
+          titleSubtitle_title_type:
+            label: Градиент, цвет части заголовка
+            type: dropdown
+            span: right
+
+          titleSubtitle_is_broke:
+            label: "Нет/Да"
+            comment: Совершить перенос строки
+            type: switch
+            span: left  
+    titleSubtitle_desc:
+      label: Описание
+      type: richeditor
+      span: right
+
+    titleSubtitle_is_centered:
+      label: "Неактивно/Активно"
+      comment: Центрирование текста
+      type: switch
+      span: left  
+
+    section_hr10:
+      type: section  
+      span: full  
+
+    titleSubtitle_is_active:
+      label: "Неактивно/Активно"
+      comment: Показать или скрыть секцию
+      type: switch
+      span: left         
+
+transfer:
+  name: Секция трансфер 
+  description: Секция трансфер с двумя блоками валют и табами  
+  icon: icon-picture-o
+  fields:
+    section:
+      label: Секция
+      type: section
+
+    transfer_item:
+      label: Табы
+      type: repeater
+      prompt: 'Добавить'
+      span: full
+      form:
+        fields:
+          transfer_tab:
+            label: Имя таба
+            type: text
+            span: left
+          transfer_tab_desc:
+            label: Описание таба
+            type: richeditor
+            span: right
+          section_hr10:
+            label: Информация по валюте и переводам    
+            type: section  
+            span: full    
+          transfer_tab_currency_title1:
+            label: Заголовок валютного блока1
+            placeholder: Вы посылаете
+            type: text
+            span: left
+          transfer_tab_currency_title2:
+            label: Заголовок валютного блока2
+            placeholder: Они получают
+            type: text
+            span: right
+          transfer_tab_currency_summ1:
+            label: Сумма1
+            placeholder: 200
+            type: text
+            span: left
+          transfer_tab_currency_summ2:
+            label: Сумма2
+            placeholder: 190,54
+            type: text
+            span: right
+          transfer_tab_currency1:
+            label: Название валюты1
+            placeholder: долларов
+            type: text
+            span: left
+          transfer_tab_currency2:
+            label: Название валюты2
+            placeholder: евро
+            type: text
+            span: right
+
+          is_active:
+            label: "Неактивно/Активно"
+            type: switch
+            span: left
+    
+
+    
+
+    section_hr10:
+      type: section  
+      span: full  
+
+    transfer_is_active:
+      label: "Неактивно/Активно"
+      comment: Показать или скрыть секцию
+      type: switch
+      span: left       
+
+numberedList:
+  name: Секция со списком в две колонки 
+  description: Список с иконками  
+  icon: icon-picture-o
+  fields:
+    section:
+      label: Секция
+      type: section
+
+    numberedList_item:
+      label: Пункты
+      type: repeater
+      prompt: 'Добавить'
+      span: full
+      form:
+        fields:
+          numberedList_item_title:
+            label: Заголовок
+            type: text
+            span: left   
+          numberedList_item_desc:
+            label: Описание
+            type: textarea
+            span: right
+          numberedList_item_icon:
+            label: Имя иконки
+            type: text
+            span: left
+            comment: Новую иконку необходимо добавить в файл sprite.svg и вписать id иконки в поле
+            placeholder: step1
+          numberedList_item_is_active:
+            label: "Неактивно/Активно"
+            type: switch
+            span: left  
+    numberedList_is_active:
+      label: "Неактивно/Активно"
+      type: switch
+      span: left
+    numberedList_is_changed:
+      label: Изменить внешний вид списка
+      comment: Каждому item добавляется "заблюренный фон", выравнивание по центру... 
+      type: switch
+      span: left
+
+iconicList:
+  name: Секция со списком в четыре колонки 
+  description: Список с лого и наименованием (без описания)
+  icon: icon-picture-o
+  fields:
+    section:
+      label: Секция
+      type: section
+
+    iconicList_item:
+      label: Пункты
+      type: repeater
+      prompt: 'Добавить'
+      span: full
+      form:
+        fields:
+          iconicList_item_title:
+            label: Заголовок
+            type: text
+            span: left   
+            comment: Имя бренда или что-то наподобие того...
+          iconicList_item_img:
+            label: Картинка
+            type: mediafinder
+            span: right
+            comment: Альтернатива иконке
+          
+          iconicList_item_is_active:
+            label: "Неактивно/Активно"
+            type: switch
+            span: left  
+    iconicList_is_active:
+      label: "Неактивно/Активно"
+      type: switch
+      span: left
+
+
+callback:
+  name: Секция форма обратной связи 
+  description: Форма обратной связи 
+  icon: icon-picture-o
+  fields:
+    section:
+      label: Форма
+      type: section
+
+    callback_is_active:
+      label: "Неактивно/Активно"
+      type: switch
+      span: left  
+
+
+
+hero2imgs:
+  name: Секция заголовок с двумя картинками по караям 
+  description: Секция заголовок с двумя картинками по краям
+  icon: icon-picture-o
+  fields:
+    section:
+      label: Секция
+      type: section
+
+    hero2imgs_title_kind:
+      label: Заголовок
+      type: repeater
+      prompt: 'Добавить'
+      span: left
+      form:
+        fields:
+          hero2imgs_title:
+            label: Часть заголовка
+            type: text
+            span: left
+
+          hero2imgs_title_type:
+            label: Градиент, цвет части заголовка
+            type: dropdown
+            span: right
+
+          hero2imgs_is_broke:
+            label: "Нет/Да"
+            comment: Совершить перенос строки
+            type: switch
+            span: left
+
+    hero2imgs_desc:
+      label: Описание
+      type: richeditor
+      span: right 
+    hero2imgs_btn_title:
+      label: Текст кнопки
+      type: text
+      span: left   
+    hero2imgs_btn_link:
+      label: Ссылка кнопки
+      type: text
+      span: right 
+    hero2imgs_img_left:
+      label: Картинка слева
+      type: mediafinder
+      span: left    
+    hero2imgs_img_right:
+      label: Картинка справа
+      type: mediafinder
+      span: right    
+    hero2imgs_is_active:
+      label: "Неактивно/Активно"
+      type: switch
+      span: left  
+
+
+
+trippleBlock_bg:
+  name: Секция с тремя блоками акцентированного цвета с иконкой на фоне
+  description: блок с тремя колонками, без сплывающего текста при наведении
+  icon: icon-picture-o
+  fields:
+    section:
+      label: Секция
+      type: section
+    trippleBlock_bg_item:
+      label: Items
+      type: repeater
+      prompt: 'Добавить'
+      span: full
+      form:
+        fields:
+          trippleBlock_bg_title:
+            label: Заголовок
+            type: text
+            span: left
+          trippleBlock_bg_desc:
+            label: Описание
+            type: richeditor
+            span: right 
+          trippleBlock_bg_icon:
+            label: Иконка на фоне
+            comment: Выберите одну из трех
+            type: dropdown
+            span: left
+          is_active:
+            label: "Неактивно/Активно"
+            type: switch
+            span: right
+    section_hr10:
+      type: section  
+      span: full         
+    trippleBlock_bg_is_active:
+      label: "Неактивно/Активно"
+      comment: Показать или скрыть секцию
+      type: switch
+      span: left 
+  
+
+
+iconTabs: 
+  name: Табы с иконками
+  description: блок с табами 
+  icon: icon-picture-o
+  fields:
+    section:
+      label: Секция
+      type: section
+
+    iconTabs_item:
+      label: Item
+      type: repeater
+      prompt: 'Добавить'
+      span: full
+      form:
+        fields:
+          iconTabs_title:
+            label: Имя таба
+            type: text
+            span: left
+            
+          iconTabs_icon:
+            label: Иконка таба
+            comment: Новую иконку необходимо добавить в файл sprite.svg и вписать id иконки в поле
+            type: text
+            span: right
+
+          iconTabs_icon_img:
+            label: Иконка таба
+            comment: Выберите изображение(альтернатива svg)
+            type: mediafinder
+            span: right
+          
+          section_hr10:
+            label: Контент
+            type: section  
+            span: full    
+          iconTabs_desc_img:
+            label: Контентное изображение
+            type: mediafinder
+            span: left
+          
+          iconTabs_desc_text:
+            label: Контент текс
+            type: richeditor
+            span: right
+
+          section_hr11:
+            label: Кнопки
+            type: section  
+            span: full    
+          iconTabs_desc_btns:
+            label: Кнопки и ссылки
+            type: repeater
+            prompt: 'Добавить кнопку'
+            span: full  
+
+            form:
+              fields:
+                iconTabs_btn_title:
+                  label: Имя кнопки
+                  type: text
+                  span: left
+                iconTabs_btn_link:
+                  label: Ссылка кнопки
+                  type: text
+                  span: right
+          section_hr12:
+            type: section  
+            span: full    
+          iconTabs_item_is_active:
+            label: Неактивно/Активно
+            type: switch  
+    section_hr10:
+      type: section  
+      span: full         
+    iconTabs_is_active:
+      label: Неактивно/Активно
+      type: switch  
+
+
+
+

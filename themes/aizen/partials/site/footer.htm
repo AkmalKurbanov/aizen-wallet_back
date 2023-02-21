@@ -1,0 +1,121 @@
+[viewBag]
+
+[staticMenu]
+code = "footer-menu"
+
+[builderList menuFooter]
+modelClass = "Aizen\Menuheader\Models\MenuHeader"
+scope = "-"
+scopeValue = "{{ :scope }}"
+displayColumn = "a"
+noRecordsMessage = "Записи не найдены"
+detailsPage = "-"
+detailsUrlParameter = "id"
+pageNumber = "{{ :page }}"
+
+[localePicker]
+forceUrl = 0
+==
+<div class="footer">
+  <div class="container-lg">
+    <div class="col-wrap">
+      <div class="col-wrap__col">
+        <div class="footer__nav">
+          
+          
+          
+          {% for record in records %}
+            <ul>
+              <li><a href="{{record.link}}">{{record.item}}</a>
+                <ul>
+                  {% for item in record.inslide_item_list %}
+                    <li><a href="{{item.link_inside_item}}">{{item.inside_item}}</a></li>  
+                  {% endfor %}
+                </ul>
+              </li>
+                
+            </ul>
+          {% endfor %}
+              
+        </div>
+      </div>
+      <div class="col-wrap__col">
+        <div class="footer__app">
+          <div class="footer__app-img">
+            
+            
+              <img loading="lazy" src="{{'assets/images/app/app-img.webp'|theme}}" alt="" width="157" height="320">
+            
+         
+          </div>
+          <div class="footer__app-links">
+            <div class="footer__app-title">
+              <div class="title tac">
+                <span class="part-sh">{{'Download'|_}} <br>
+                </span>
+                <span class="part-mc">{{'App'}}</span>
+              </div>
+            </div>
+            <div class="footer__app-qr tac">
+              {% for qr in this.theme.qr_collapse %}
+                <img loading="lazy" src="{{qr.qr | media | resize(130, 130, { mode: 'crop', quality: '80', extension: 'webp' })}}" alt="" width="130" height="130">
+              {% endfor %}
+              </div>
+            <div class="footer__app-platforms">
+              
+              {% for platform in this.theme.app_links %}
+                {% if platform.app_link_is_active %}
+                  <div class="footer__app-platform">
+                    <a class="tac" href="{{platform.platform_link}}" target="_blank">{{'Download'|_}}</a>
+                    <a href="{{platform.platform_link}}" target="_blank">
+                      <img loading="lazy" src="{{platform.platform_img | media | resize(190, auto, { mode: 'crop', quality: '80', extension: 'webp' })}}" alt="">
+                    </a>
+                  </div>
+                  {% else %}
+                {% endif %}
+              {% endfor %}
+            
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <div class="footer__bottom-col-wrap">
+        <div class="footer__lang">
+          <div class="footer__lang-active">{{activeLocaleName}} <svg class="icon icon--stroke">
+              <use xlink:href="{{'assets/sprite.svg#angle'|theme}}"></use>
+            </svg>
+          </div>
+          <ul class="footer__lang-dropdown">
+            
+            {% for code, name in locales %}
+            <li>
+              <a href="{{code}}">{{ name }}</a>
+            </li>
+            {% endfor %}      
+          </ul>
+        </div>
+        <div class="social">
+          <ul>
+            {% for social in this.theme.social_collapse %}
+              <li>
+                <a href="{{social.social_link}}" target="_blank">
+                  <svg>
+                    <use xlink:href="{{'assets/sprite.svg#'|theme}}{{social.social_icon}}"></use>
+                  </svg>
+                </a>
+              </li>
+              
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+      <div class="footer__copyright"> © {{ 'now' | date('Y') }} 
+        {% for item in this.theme.copyright_collapse %}
+          {{item.site_name}},{{item.copyright}}
+        {% endfor %}  
+      </div>
+    </div>
+  </div>
+</div>

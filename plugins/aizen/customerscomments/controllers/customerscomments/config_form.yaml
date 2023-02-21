@@ -1,0 +1,10 @@
+name: CustomersComments
+form: $/aizen/customerscomments/models/customerscomments/fields.yaml
+modelClass: Aizen\Customerscomments\Models\CustomersComments
+defaultRedirect: aizen/customerscomments/customerscomments
+create:
+    redirect: 'aizen/customerscomments/customerscomments/update/:id'
+    redirectClose: aizen/customerscomments/customerscomments
+update:
+    redirect: aizen/customerscomments/customerscomments
+    redirectClose: aizen/customerscomments/customerscomments

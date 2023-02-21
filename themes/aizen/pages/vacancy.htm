@@ -1,0 +1,46 @@
+title = "Vacancy"
+url = "/vacancy/:id"
+layout = "default"
+is_hidden = 0
+
+[builderDetails]
+modelClass = "Aizen\Vacancies\Models\Vacancy"
+identifierValue = "{{ :id }}"
+modelKeyColumn = "id"
+displayColumn = "id"
+notFoundMessage = "Запись не найдена"
+==
+{% set record = builderDetails.record %}
+{% set displayColumn = builderDetails.displayColumn %}
+{% set notFoundMessage = builderDetails.notFoundMessage %}
+{% for item in locales  %}
+  {{item.name}}
+{% endfor %}
+{% if record %}
+<div class="article-detail">
+  <div class="container">
+
+    <div class="title">
+      <span class="part-sh">{{record.position}}</span>
+    </div>   
+    
+    <div class="article-detail__content">
+      {{record.text | raw }}
+    </div>
+    <p class="tac">{{'Share'|_}}</p>
+    <div class="article-detail__social tac">
+      <script src="https://yastatic.net/share2/share.js"></script>
+      <div class="ya-share2" data-curtain data-shape="round" data-lang="en" data-services="vkontakte,odnoklassniki,telegram,viber,whatsapp,tumblr,linkedin"></div>
+    </div>
+    <br>
+    <div class="tac">
+      <svg>
+        <use xlink:href="{{'assets/sprite.svg#logoVertical'|theme}}"></use>
+      </svg>
+    </div>
+  </div>
+</div>
+{% else %}
+{{ notFoundMessage }}
+{% endif %}
+

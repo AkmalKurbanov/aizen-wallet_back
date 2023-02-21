@@ -1,0 +1,157 @@
+items:
+    -
+        title: 'Private clients'
+        type: url
+        url: /
+        code: ''
+        viewBag:
+            locale:
+                ru:
+                    title: 'Частным клиентам'
+                    url: ''
+                kg:
+                    title: 'Жеке кардарлар'
+                    url: ''
+                tr:
+                    title: 'özel müşteriler'
+                    url: ''
+                de:
+                    title: Privatkunden
+                    url: ''
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+        items:
+            -
+                title: 'Create an account'
+                type: url
+                url: /
+                code: ''
+                viewBag:
+                    locale:
+                        ru:
+                            title: 'Создать аккаунт'
+                            url: ''
+                        kg:
+                            title: 'Эсеп түзүү'
+                            url: ''
+                        tr:
+                            title: 'Bir hesap oluşturun'
+                            url: ''
+                        de:
+                            title: 'Ein Konto erstellen'
+                            url: ''
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+            -
+                title: 'Bank card'
+                type: url
+                url: /
+                code: ''
+                viewBag:
+                    locale:
+                        ru:
+                            title: 'Банковская карта'
+                            url: ''
+                        kg:
+                            title: 'Банк картасы'
+                            url: ''
+                        tr:
+                            title: 'Banka kartı'
+                            url: ''
+                        de:
+                            title: Bankkarte
+                            url: ''
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+            -
+                title: Transfer
+                type: url
+                url: /
+                code: ''
+                viewBag:
+                    locale:
+                        ru:
+                            title: 'Переводы '
+                            url: ''
+                        kg:
+                            title: Которуулар
+                            url: ''
+                        tr:
+                            title: Transferleri
+                            url: ''
+                        de:
+                            title: Geldtransfers
+                            url: ''
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+            -
+                title: Cashback
+                type: url
+                url: /
+                code: ''
+                viewBag:
+                    locale:
+                        ru:
+                            title: Кешбек
+                            url: ''
+                        kg:
+                            title: 'Накталай акча'
+                            url: ''
+                        tr:
+                            title: 'Nakit para'
+                            url: ''
+                        de:
+                            title: Rückzahlung
+                            url: ''
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+            -
+                title: 'Google Pay'
+                type: url
+                url: /
+                code: ''
+                viewBag:
+                    locale:
+                        ru:
+                            title: 'Google Pay'
+                            url: ''
+                        kg:
+                            title: 'Google Pay'
+                            url: ''
+                        tr:
+                            title: 'Google Pay'
+                            url: ''
+                        de:
+                            title: 'Google Pay'
+                            url: ''
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+            -
+                title: Cryptocurrencies
+                type: url
+                url: /
+                code: ''
+                viewBag:
+                    locale:
+                        ru:
+                            title: Криптовалюты
+                            url: ''
+                        kg:
+                            title: Криптовалюталар
+                            url: ''
+                        tr:
+                            title: 'Kripto para birimleri'
+                            url: ''
+                        de:
+                            title: Kryptowährungen
+                            url: ''
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+name: 'Footer menu'

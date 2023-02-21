@@ -1,0 +1,25 @@
+columns:
+    id:
+        label: id
+        type: number
+    name:
+        label: Имя
+        type: text
+    created_at:
+        label: created_at
+        type: datetime
+    updated_at:
+        label: updated_at
+        type: datetime
+    deleted_at:
+        label: deleted_at
+        type: datetime
+    date:
+        label: date
+        type: text
+    rating:
+        label: rating
+        type: text
+    is_active:
+        label: is_active
+        type: text

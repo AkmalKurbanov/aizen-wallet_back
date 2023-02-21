@@ -1,0 +1,34 @@
+description = "Default layout"
+
+[contenteditor]
+file = "placeholder/layout.txt"
+==
+<!DOCTYPE html>
+<html>
+    <head>
+        {% partial 'site/meta' %}
+        {% styles %}
+    </head>
+    <body>
+           
+        <div class="wrapper">
+            <div class="content">
+                {% partial 'site/header' %}
+                {% page %}
+                {% partial 'site/faq' %}
+                {% partial 'site/sing-up' %}
+                {% partial 'site/comments' %}
+            </div>
+            {% partial 'site/footer' %}
+        </div>
+        
+
+        <!-- Scripts -->
+        {# <script src="{{ 'assets/vendor/jquery.js'|theme }}"></script>
+        <script src="{{ 'assets/vendor/bootstrap.js'|theme }}"></script> #}
+        <script src="{{ 'assets/javascript/app.js'|theme }}"></script>
+        {% snowboard all %}
+        {% scripts %}
+
+    </body>
+</html>

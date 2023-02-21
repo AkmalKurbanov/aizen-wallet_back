@@ -1,0 +1,57 @@
+[builderList faq]
+modelClass = "Aizen\Faq\Models\Faq"
+scope = "-"
+scopeValue = "{{ :scope }}"
+displayColumn = "question"
+noRecordsMessage = "Записи не найдены"
+detailsPage = "-"
+detailsUrlParameter = "id"
+pageNumber = "{{ :page }}"
+
+[viewBag]
+==
+{% set records = faq.records %}
+{% set displayColumn = faq.displayColumn %}
+{% set noRecordsMessage = faq.noRecordsMessage %}
+{% set detailsPage = faq.detailsPage %}
+{% set detailsKeyColumn = faq.detailsKeyColumn %}
+{% set detailsUrlParameter = faq.detailsUrlParameter %}
+
+
+    
+<div class="section" id="faq">
+  <div class="txt-section">
+    <div class="container">
+      <div class="title tac">
+        <span class="part-mc">AIZEN </span>
+        <span class="part-sh-invert">FAQs</span>
+      </div>
+      <p class="tac">
+         We aim to make managing your money as simple and accessible as possible. Find answers to common questions about mobile money accounts below. You can also check <a href="#">contact our friendly Support team. </a>
+      </p>
+      <div class="accordion">
+        
+        {% for record in records %}
+          {% if record.is_active %}
+            <div class="accordion__item">
+              <div class="accordion__title">{{record.question}} <svg class="icon icon--stroke">
+                  <use xlink:href="{{'assets/sprite.svg#angle'|theme}}"></use>
+                </svg>
+              </div>
+              <div class="accordion__desc">{{record.answer|raw}}</div>
+            </div>
+            {% else %}
+          {% endif %}    
+        {% else %}
+            <li class="no-data">{{ noRecordsMessage }}</li>
+        {% endfor %}
+
+        
+
+
+      </div>
+      {% partial 'site/seo-text' %}
+      
+    </div>
+  </div>
+</div>

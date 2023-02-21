@@ -1,0 +1,103 @@
+title = "Vacancies"
+url = "/vacancies/:page?"
+layout = "default"
+is_hidden = 0
+
+[viewBag]
+kontent[0][image] = "/career1.png"
+kontent[0][description] = "Aizen переосмысливает то, как работает банковское дело. Мы упрощаем управление вашими деньгами, где бы вы ни находились. Мы создаем финансовую свободу для всех, кто живет, работает, путешествует, учится или отправляет деньги за границу. Мы — мобильное приложение, альтернативное банкам, предлагающее счета, которые вы можете открыть мгновенно, чтобы вы не теряли доступ к деньгам, которые вам нужны, каждый раз, когда вы пересекаете границу на карте."
+kontent[1][image] = "/career2.png"
+kontent[1][description] = "Мы зарегистрировали более 2 миллионов человек из 31 страны. Наши мобильные приложения доступны на 14 языках, так что вы можете тратить и экономить как местный житель в любой точке Европейской экономической зоны. Благодаря отличным отзывам и тому, что многие наши клиенты используют нас для получения зарплаты, мы являемся одним из самых популярных и надежных финансовых сервисов в Европе."
+kontent[2][image] = "/career3.png"
+kontent[2][description] = "Мы глобальны и инклюзивны: мы хотим сделать наш сервис доступным для всех и везде. Мы прогрессивны и страстны: мы движемся вперед с энтузиазмом и любопытством. Наш продукт появился благодаря искреннему увлечению тем, что мы делаем. Мы добры и готовы к сотрудничеству: быть чуткими и открытыми в команде — лучший способ добиться цели. Мы честны и справедливы: мы верим в то, что поступаем правильно."
+
+[builderList]
+modelClass = "Aizen\Vacancies\Models\Vacancy"
+scope = "-"
+scopeValue = "{{ :scope }}"
+displayColumn = "position"
+noRecordsMessage = "Записи не найдены"
+detailsPage = "vacancy"
+detailsKeyColumn = "id"
+detailsUrlParameter = "id"
+recordsPerPage = 5
+pageNumber = "{{ :page }}"
+==
+<div class="hero-full-height">
+  <div class="container-lg">
+    <div class="title title--drop-shadow tac">
+      <span class="part-sh-invert">{{'Grow with us'|_}}</span>
+    </div>
+  </div>
+</div>
+
+<div class="section-wrap">
+  {% for item in viewBag.kontent %}
+    <div class="section">
+    <div class="container">
+      <div class="col-wrap section-text-img">
+        <div class="col-wrap__col">
+          <div class="desc-part">
+            <p>{{item.description}}</p>
+          </div>
+        </div>
+        <div class="col-wrap__col">
+          <div class="section-text-img__img">
+            <img loading="lazy" src="{{item.image | media | resize(400, 400, { mode: 'crop', quality: '80', extension: 'webp' })}}" alt="" with="575" height="575">
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  {% endfor %}
+</div>
+
+
+<div class="section">
+  <div class="vacancies">
+    <div class="container">
+      <div class="title tac">
+        <span class="part-mc">{{'Доступные вакансии'|_}}</span>
+      </div>
+      <div class="vacancies__wrap">
+        
+        {% for record in records %}
+            {% if record.is_active %}
+              <div class="vacancies__item">
+                
+                <a href="{{ detailsPage|page({ (detailsUrlParameter): attribute(record, detailsKeyColumn) }) }}">
+                  <div class="part-sh-invert" style="color: #fff;">{{record.position}}</div>
+                </a>
+
+                <div class="vacancies__item-position">
+                  <span>{{record.category}} - </span>
+                  {{record.location}}
+                </div>
+              </div>
+              {% else %}
+            {% endif %}
+        {% endfor %}
+            
+        <br>        
+        {% if records.lastPage > 1 %}
+            <ul class="pagination">
+                {% if records.currentPage > 1 %}
+                    <li><a href="{{ this.page.baseFileName|page({ (pageParam): (records.currentPage-1) }) }}">&larr;</a></li>
+                {% endif %}
+
+                {% for page in 1..records.lastPage %}
+                    <li class="{{ records.currentPage == page ? 'active' : null }}">
+                        <a href="{{ this.page.baseFileName|page({ (pageParam): page }) }}">{{ page }}</a>
+                    </li>
+                {% endfor %}
+
+                {% if records.lastPage > records.currentPage %}
+                    <li><a href="{{ this.page.baseFileName|page({ (pageParam): (records.currentPage+1) }) }}">&rarr;</a></li>
+                {% endif %}
+            </ul>
+        {% endif %}
+
+      </div>
+    </div>
+  </div>
+</div>

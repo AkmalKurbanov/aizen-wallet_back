@@ -1,0 +1,139 @@
+[builderList CustomersComments]
+modelClass = "Aizen\Customerscomments\Models\CustomersComments"
+scope = "-"
+scopeValue = "{{ :scope }}"
+displayColumn = "name"
+noRecordsMessage = "Записи не найдены"
+detailsPage = "-"
+detailsUrlParameter = "id"
+pageNumber = "{{ :page }}"
+
+[viewBag]
+==
+{% set records = CustomersComments.records %}
+{% set displayColumn = CustomersComments.displayColumn %}
+{% set noRecordsMessage = CustomersComments.noRecordsMessage %}
+{% set detailsPage = CustomersComments.detailsPage %}
+{% set detailsKeyColumn = CustomersComments.detailsKeyColumn %}
+{% set detailsUrlParameter = CustomersComments.detailsUrlParameter %}
+
+
+
+
+
+
+<div class="section comments">
+        <div class="container"> 
+          <div class="title tac"><span class="part-sh">Our  </span><span class="part-mc">{{'customers'|_}} </span><span class="part-sh-invert">{{'love us'|_}}</span></div>
+          <p class="tac">{{"That's what they say"|_}}  </p>
+          <div class="comments__slider">
+            <div class="swiper comments-js"> 
+              <div class="swiper-wrapper">
+                
+              {% for record in records %}
+                {% if record.is_active %}
+                  <div class="swiper-slide"> 
+                    <a data-fancybox data-src="#customer-comment{{record.id}}" href="javascript:;" class="comments__item">
+                      <div class="comments__status">
+                        <div class="comments__rating">
+                          <div class="comments__rating-empty">
+
+                            {% for emptyStar in 1..5 %}
+                              <svg class="icon">
+                                <use xlink:href="{{'assets/sprite.svg#star-o'|theme}}"></use>
+                              </svg>
+                            {% endfor %}
+
+
+                            <div class="comments__rating-active">
+                              {% if record.rating == 'star1' %}
+                              
+                                {% for emptyStar in 1..1 %}
+                                  <svg class="icon">
+                                    <use xlink:href="{{'assets/sprite.svg#star-o'|theme}}"></use>
+                                  </svg>
+                                {% endfor %}
+
+                                {% elseif record.rating == 'star2' %}
+                                
+                                  {% for emptyStar in 1..2 %}
+                                    <svg class="icon">
+                                      <use xlink:href="{{'assets/sprite.svg#star-o'|theme}}"></use>
+                                    </svg>
+                                  {% endfor %}
+
+                                {% elseif record.rating == 'star3' %}
+
+                                  {% for emptyStar in 1..3 %}
+                                    <svg class="icon">
+                                      <use xlink:href="{{'assets/sprite.svg#star-o'|theme}}"></use>
+                                    </svg>
+                                  {% endfor %}
+
+                                {% elseif record.rating == 'star4' %}
+
+                                  {% for emptyStar in 1..4 %}
+                                    <svg class="icon">
+                                      <use xlink:href="{{'assets/sprite.svg#star-o'|theme}}"></use>
+                                    </svg>
+                                  {% endfor %}
+
+                                {% elseif record.rating == 'star5' %}
+
+                                  {% for emptyStar in 1..5 %}
+                                    <svg class="icon">
+                                      <use xlink:href="{{'assets/sprite.svg#star-o'|theme}}"></use>
+                                    </svg>
+                                  {% endfor %}
+                              
+                              {% endif %}
+
+                            </div>
+                          </div>
+                        </div>
+                        <div class="comments__invited">
+                          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M6.75 13.5C10.4779 13.5 13.5 10.4779 13.5 6.75C13.5 3.02208 10.4779 0 6.75 0C3.02208 0 0 3.02208 0 6.75C0 10.4779 3.02208 13.5 6.75 13.5ZM10.1341 4.82009C10.3109 4.60795 10.2822 4.29267 10.0701 4.11589C9.85795 3.93911 9.54267 3.96777 9.36589 4.17991L7.01794 6.99745C6.68068 7.40216 6.46031 7.66483 6.27302 7.83519C6.09637 7.99586 6.01118 8.01555 5.95546 8.01807C5.89974 8.0206 5.81311 8.00871 5.62265 7.86469C5.4207 7.71199 5.17745 7.47034 4.80494 7.09784L4.10355 6.39645C3.90829 6.20118 3.59171 6.20118 3.39645 6.39645C3.20119 6.59171 3.20119 6.90829 3.39645 7.10355L4.09784 7.80494L4.12238 7.82949C4.46342 8.17056 4.75557 8.46274 5.01951 8.66233C5.30124 8.87536 5.61593 9.0345 6.00077 9.01705C6.38562 8.99959 6.68461 8.81261 6.94589 8.57494C7.19068 8.35229 7.45517 8.03486 7.76393 7.66431L7.78616 7.63764L10.1341 4.82009Z" fill="#0D7581"></path>
+                          </svg>Invited
+                        </div>
+                      </div>
+                      <div class="comments__title">{{record.comment|slice(0,25)}}…</div>
+                      <div class="comments__text">{{record.comment|slice(0,86)}}…</div>
+                      <div class="comments__info">
+                        <div class="comments__name">{{record.name}},</div>
+                        <div class="comments__date">{{record.date|date('M d')}}</div>
+                      </div>
+                      <div class="comments__full-comment" id="customer-comment{{record.id}}"> 
+                        <div class="comments__name">{{record.name}}</div>
+                        <p>{{record.comment}}</p>
+                      </div>
+                    </a>
+                  </div>
+                {% else %}
+
+                {% endif %}    
+                {% else %}
+                    <li class="no-data">{{ noRecordsMessage }}</li>
+              {% endfor %}
+
+              </div>
+            </div>
+            <div class="comments-next">
+              <svg class="icon icon--stroke">
+                <use xlink:href="{{'assets/sprite.svg#angle'|theme}}"></use>
+              </svg>
+            </div>
+            <div class="comments-prev">
+              <svg class="icon icon--stroke">
+                <use xlink:href="{{'assets/sprite.svg#angle'|theme}}"></use>
+              </svg>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+
+
+
+
+

@@ -1,0 +1,10 @@
+name: Faq
+form: $/aizen/faq/models/faq/fields.yaml
+modelClass: Aizen\Faq\Models\Faq
+defaultRedirect: aizen/faq/faq
+create:
+    redirect: 'aizen/faq/faq/update/:id'
+    redirectClose: aizen/faq/faq
+update:
+    redirect: aizen/faq/faq
+    redirectClose: aizen/faq/faq

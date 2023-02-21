@@ -1,0 +1,12 @@
+list: $/aizen/vacancies/models/vacancy/columns.yaml
+modelClass: Aizen\Vacancies\Models\Vacancy
+title: Vacancy
+noRecordsMessage: 'backend::lang.list.no_records'
+showSetup: true
+showCheckboxes: true
+recordsPerPage: 20
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: 'backend::lang.list.search_prompt'
+recordUrl: 'aizen/vacancies/vacancy/update/:id'

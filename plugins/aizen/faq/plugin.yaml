@@ -1,0 +1,11 @@
+plugin:
+    name: 'aizen.faq::lang.plugin.name'
+    description: 'aizen.faq::lang.plugin.description'
+    author: Aizen
+    icon: wn-icon-question
+    replaces: {  }
+navigation:
+    Faq:
+        label: Faq
+        url: aizen/faq/faq
+        icon: icon-question

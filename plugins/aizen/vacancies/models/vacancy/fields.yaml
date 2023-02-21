@@ -1,0 +1,22 @@
+fields:
+    position:
+        label: 'Вакантная позиция'
+        span: auto
+        type: text
+    category:
+        label: 'Категория вакансии'
+        span: auto
+        type: text
+    location:
+        label: 'Место расположения'
+        span: left
+        type: text
+    text:
+        label: 'Текст вакансии'
+        size: ''
+        span: full
+        type: richeditor
+    is_active:
+        label: Неактивно/Активно
+        span: left
+        type: switch

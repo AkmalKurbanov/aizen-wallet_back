@@ -1,0 +1,15 @@
+fields:
+    question:
+        label: Вопрос
+        size: ''
+        span: auto
+        type: textarea
+    answer:
+        label: Ответ
+        size: ''
+        span: auto
+        type: richeditor
+    is_active:
+        label: Неативно/Активно
+        span: auto
+        type: switch

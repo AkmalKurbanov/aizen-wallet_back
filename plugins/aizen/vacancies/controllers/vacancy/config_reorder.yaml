@@ -1,0 +1,5 @@
+title: Vacancy
+modelClass: Aizen\Vacancies\Models\Vacancy
+nameFrom: position
+toolbar:
+    buttons: reorder_toolbar

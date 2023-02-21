@@ -1,0 +1,11 @@
+plugin:
+    name: 'aizen.vacancies::lang.plugin.name'
+    description: 'aizen.vacancies::lang.plugin.description'
+    author: Aizen
+    icon: wn-icon-list-alt
+    replaces: {  }
+navigation:
+    Мacancies:
+        label: Вакансии
+        url: aizen/vacancies/vacancy
+        icon: icon-list-ol

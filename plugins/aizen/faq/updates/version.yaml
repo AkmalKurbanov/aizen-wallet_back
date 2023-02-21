@@ -1,0 +1,8 @@
+1.0.1:
+    - 'Initialize plugin.'
+1.0.2:
+    - 'Created table aizen_faq_'
+    - builder_table_create_aizen_faq_.php
+1.0.3:
+    - 'Updated table aizen_faq_'
+    - builder_table_update_aizen_faq_.php

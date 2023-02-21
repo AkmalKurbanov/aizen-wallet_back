@@ -1,0 +1,5 @@
+title: MenuHeader
+modelClass: Aizen\Menuheader\Models\MenuHeader
+nameFrom: item
+toolbar:
+    buttons: reorder_toolbar

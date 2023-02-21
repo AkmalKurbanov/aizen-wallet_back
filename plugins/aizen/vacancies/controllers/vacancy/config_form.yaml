@@ -1,0 +1,10 @@
+name: Vacancy
+form: $/aizen/vacancies/models/vacancy/fields.yaml
+modelClass: Aizen\Vacancies\Models\Vacancy
+defaultRedirect: aizen/vacancies/vacancy
+create:
+    redirect: 'aizen/vacancies/vacancy/update/:id'
+    redirectClose: aizen/vacancies/vacancy
+update:
+    redirect: aizen/vacancies/vacancy
+    redirectClose: aizen/vacancies/vacancy

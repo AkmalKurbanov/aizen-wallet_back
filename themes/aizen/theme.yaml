@@ -1,0 +1,108 @@
+name: Aizen wallet
+author: Aizen
+homepage: 'https://wintercms.com'
+code: ''
+
+form:
+  fields:
+    registration_section:
+      label: Ссылка на регистрацию
+      type: section
+    
+    registration_collapse:
+      span: full   
+      type: repeater
+      minItems: 1
+      maxItems: 1
+      form:
+        fields:  
+          registration_link:
+            label: Ссылка на регистрацию
+            span: left
+            type: text
+          registration_is_active:
+            label: "Неактивно/Активно"
+            type: switch
+            span: right  
+
+    copyright_section:
+      label: Копирайт
+      type: section
+
+    copyright_collapse:
+      span: full   
+      type: repeater
+      minItems: 1
+      maxItems: 1
+      translatable: true
+      form:
+        fields:  
+          site_name:
+            label: Имя сайта
+            span: left
+            type: text
+          copyright:
+            label: Копирайт
+            span: right
+            type: textarea
+    
+    footer_app_info:
+      label: Информация по мобильному приложению
+      type: section
+
+    qr_collapse:
+      label: Qr код для скачивания приложения
+      span: full   
+      type: repeater
+      minItems: 1
+      maxItems: 1
+      form:
+        fields:
+          qr:
+            label: 'Изображение QR кода'
+            span: full
+            type: mediafinder
+      
+    app_links:
+      label: Ссылки на платформы для скачивани приложения
+      span: full   
+      type: repeater
+      minItems: 1
+      maxItems: 3
+      prompt: Добавить платформу
+      form:
+        fields:
+          platform_img:
+            label: Изображение платформы
+            span: left
+            type: mediafinder  
+          platform_link:
+            label: Ссылка на платформу для скачивания
+            span: right
+            type: text  
+          app_link_is_active:
+            label: "Неактивно/Активно"
+            type: switch
+            span: left
+
+    social_section:
+      label: Социальные сети
+      type: section
+
+    social_collapse:
+      span: full   
+      type: repeater
+      prompt: Добавить соц.сеть
+      form:
+        fields:
+          social_icon:
+            label: Иконка социльной сети
+            span: left
+            type: dropdown
+          social_link:
+            label: Ссылка
+            span: right
+
+
+    
+        

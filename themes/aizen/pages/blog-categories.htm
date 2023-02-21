@@ -1,0 +1,109 @@
+title = "Blog categories"
+url = "/blog/category/:slug/:page?"
+layout = "default"
+is_hidden = 0
+
+[blogPosts]
+pageNumber = "{{ :page }}"
+categoryFilter = "{{ :slug }}"
+postsPerPage = 10
+noPostsMessage = "Записей не найдено"
+sortOrder = "published_at desc"
+categoryPage = "blog-categories"
+postPage = "blog-post"
+
+[blogCategories]
+slug = "{{ :slug }}"
+displayEmpty = 0
+categoryPage = "blog-categories"
+==
+<div class="section">
+  <div class="article">
+    <div class="container-lg">
+      <div class="title tac">
+        <span class="part-mc">{{'Articles'|_}}</span>
+      </div>
+      <div class="article__wrap">
+        <div class="article__col">
+          {% for post in posts %}
+            <div class="article__item">
+              <div class="article__item-img">
+                {% for image in post.featured_images|slice(0,1) %}
+                  <img src="{{image.path | resize(200, 180, { mode: 'crop', quality: '80', extension: 'webp' })}}"
+                    alt="{{ post.title }}">
+                  {% endfor %}
+              </div>
+              <div class="article__item-desc-wrap">
+                <div class="article__item-desc">
+                  {% for cat in post.categories %}
+                    <a href="{{cat.url}}" style="display: inline-block;"><span>{{cat.name}}</span></a>
+                  {%endfor %}
+                  <h2>{{ post.title }}</h2>
+                  <div class="article__item-desc-bottom">
+                    <p>{{ post.published_at |date('d M Y') }}</p>
+                    <a class="btn btn--accent" href="{{ post.url }}">{{'Read'|_}} </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+        <div class="article__col">
+          <div class="article__categories-wrap">
+            <div class="article__categories">
+              <div class="title">
+                <span class="part-mc">{{'Categories'}}</span>
+              </div>
+              <div class="article__categories-list">
+                <ul>
+
+                {% for category in categories %}
+                    {% set postCount = category.post_count %}
+                    <li {% if category.slug == currentCategorySlug %}class="active"{% endif %}>
+                        <a href="{{ category.url }}" class="typical-block">{{ category.name }}</a> 
+                      
+                        {% if category.children|length > 0 %}
+                            <ul>
+                                {% partial __SELF__ ~ "::items"
+                                    categories=category.children
+                                    currentCategorySlug=currentCategorySlug
+                                %}
+                            </ul>
+                        {% endif %}
+                    </li>
+                {% endfor %}
+                
+
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+        <br>
+      
+
+          {% if posts.lastPage > 1 %}
+          <ul class="pagination">
+            {% if posts.currentPage > 1 %}
+            <li><a href="{{ this.page.baseFileName | page({ (blogPosts.pageParam): (posts.currentPage-1) }) }}">&larr;
+              </a></li>
+            {% endif %}
+
+            {% for page in 1..posts.lastPage %}
+            <li class="{{ posts.currentPage == page ? 'active' : null }}">
+              <a href="{{ this.page.baseFileName | page({ (blogPosts.pageParam): page }) }}">{{ page }}</a>
+            </li>
+            {% endfor %}
+
+            {% if posts.lastPage > posts.currentPage %}
+            <li><a href="{{ this.page.baseFileName | page({ (blogPosts.pageParam): (posts.currentPage+1) }) }}">
+                &rarr;</a></li>
+            {% endif %}
+          </ul>
+          {% endif %}
+
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+
+
+
+<div class="header__lang-hidden">
+    {% for code, name in locales %}
+    <div class="header__lang-item">
+        <span></span>
+        <div class="header__lang-name">{{name}}</div>
+      </div>
+    {% endfor %}
+</div>
+{% for locale, alternateUrl in __SELF__.locales %}
+<div class="header__lang-item">
+    <a href="{{ url(alternateUrl) }}">
+        <img
+            loading="lazy"
+            src="{{('assets/images/'~locale~'.webp')|trans|theme}}"
+            alt=""
+        />
+    </a>
+</div>
+
+{% endfor %}

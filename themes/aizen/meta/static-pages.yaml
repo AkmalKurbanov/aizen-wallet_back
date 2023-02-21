@@ -1,0 +1,11 @@
+static-pages:
+    home: {  }
+    private-clients: {  }
+    transfer: {  }
+    cashback: {  }
+    google-pay: {  }
+    business-accont: {  }
+    crypto-business: {  }
+    online-payments: {  }
+    digital-terminal: {  }
+    rates: {  }

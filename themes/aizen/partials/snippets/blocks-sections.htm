@@ -1,0 +1,694 @@
+[viewBag]
+snippetCode = "blocks-sections"
+snippetName = "Блоки и секции"
+
+==
+
+
+
+
+
+{% for field in mains %}
+  {% if field.textImg_is_active %}
+    <div class="section 
+      {% if field.textImg_is_floated %}
+         section--float
+        {% else %}
+      {% endif %}
+    ">
+      <div class="container">
+        <div class="col-wrap section-text-img">
+          <div class="col-wrap__col
+            {% if field.textImg_is_floatedRight %}
+              col-wrap__col--float-right
+              {% else %}
+            {% endif %}
+          ">
+            {% if field.textImg_title_kind %}
+            
+            <div class="title">
+              
+              
+                {% for title in field.textImg_title_kind %}
+
+                  {% if title.textImg_title_type == 1 %}
+                    <span class="part-sh-invert"> {{ title.textImg_title }} </span>
+                    {% if title.textImg_is_broke %}
+                      <br>  
+                      {% else %}
+                    {% endif %}
+                    {% elseif title.textImg_title_type == 2 %}
+                    <span class="part-sh"> {{ title.textImg_title }} </span>
+                    {% if title.textImg_is_broke %}
+                      <br>  
+                      {% else %}
+                    {% endif %}
+                    {% elseif title.textImg_title_type == 3 %}  
+                    <span class="part-mc"> {{ title.textImg_title }} </span>
+                    {% if title.textImg_is_broke %}
+                      <br>  
+                      {% else %}
+                    {% endif %}
+                    {% else %}
+
+                  {% endif %}  
+                  
+                {% endfor %}
+
+              </div>
+              {% else %}
+            {% endif %}  
+
+            {% if field.textImg_desc %}
+              <div class="desc-part">
+                <p> {{ field.textImg_desc | raw }} </p>
+              </div>
+
+              {% else %}
+
+            {% endif %}  
+
+            
+            
+              <div class="block-control" style="
+                {% if field.textImg_is_floatedRight %}
+                    display: inline-block
+                  {% else %}
+                {% endif %}
+              ">
+                {% if field.textImg_more %}
+                  <a class="btn btn--accent btn--arrow" href="{{field.textImg_more}}">{{field.textImg_more_btn_text}} <svg class="icon">
+                      <use xlink:href="{{'assets/sprite.svg#arrow'|theme}}"></use>
+                    </svg>
+                  </a>
+                  
+                  {% else %}
+
+                {% endif %}
+                
+                {% if field.textImg_ask %}  
+                  <a class="question" href="#faq">{{'Есть вопросы?'|_}}</a>
+                {% endif %}    
+              </div>
+
+               
+
+          </div>
+          <div class="col-wrap__col">
+            {% if field.textImg_img %}
+              <div class="section-text-img__img 
+                {% if textImg_is_big %}
+                  big-img
+                  {% else %}
+                {% endif %}
+              ">
+                <img loading="lazy" src="{{ field.textImg_img | media | resize(576, auto, { mode: 'crop', quality: '80', extension: 'webp' }) }}" alt="" with="575" height="575">
+                {% if textImg_addinfo_is_active %}
+                  <div class="section-text-img__img-interactive">
+
+                    <div class="section-text-img__img-interactive-col">
+                      <div class="section-text-img__img-interactive-img">
+                        <img src="{{field.textImg_addinfo_img | media | resize(50, 50, { mode: 'crop', quality: '80', extension: 'webp' })}}" alt="">
+                      </div>
+                    </div>
+                    <div class="section-text-img__img-interactive-col">
+                      <div class="accent">{{field.textImg_addinfo_title}}</div>
+                      <div class="txt">{{field.textImg_addinfo_desc}}</div>
+                    </div>
+                    <div class="section-text-img__img-interactive-col">
+                      <a href="{{field.textImg_addinfo_link}}">
+                        <svg class="icon icon--stroke angle" stroke="#B0B2B2">
+                          <use xlink:href="#angle"></use>
+                        </svg>
+                      </a>
+                    </div>
+                  </div>
+                  {% else %}
+
+                {% endif %}
+
+              </div>
+
+              {% else %}
+
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {% else %}  
+  
+  {% endif %}  
+
+
+  
+
+  {% if field.titleText_is_active %}
+    <div class="section">
+      <div class="container">
+          
+        <div class="col-wrap">
+          {% if field.titleText_title_kind %}
+            <div class="col">
+            
+              <div class="title title--drop-shadow">
+                
+                {% for title in field.titleText_title_kind %}
+
+                  {% if title.titleText_title_type == 1 %}
+                    <span class="part-sh-invert"> {{ title.titleText_title }} </span>
+                    
+                    {% elseif title.titleText_title_type == 2 %}
+                      <span class="part-sh"> {{ title.titleText_title }} </span>
+                    {% elseif title.titleText_title_type == 3 %}  
+                      <span class="part-mc"> {{ title.titleText_title }} </span>
+                    {% else %}
+
+                  {% endif %}
+                  
+                  {% if title.titleText_is_broke %}
+                    <br>
+                    {% else %}  
+                  {% endif %}  
+                  
+                {% endfor %}
+
+              </div>
+              
+              {% if field.titleText_more == false and field.titleText_ask == false %}
+            
+          
+              {% else %}
+              
+                <div class="block-control">
+                  {% if field.titleText_more %}
+                    <a class="btn btn--accent btn--arrow" href="{{field.titleText_more}}">{{'Подробности'|_}} <svg class="icon">
+                        <use xlink:href="{{'assets/sprite.svg#arrow'|theme}}"></use>
+                      </svg>
+                    </a>
+                    
+                    {% else %}
+
+                  {% endif %}
+                  
+                  {% if field.titleText_ask %}  
+                    <a class="question" href="#faq">{{'Есть вопросы?'|_}}</a>
+                  {% endif %}    
+                </div>
+
+              {% endif %}  
+
+            </div>
+              {% else %}
+              
+            {% endif %}
+            
+            {% if field.titleText_desc %}
+            <div class="col">
+              <div class="desc-part">
+                <p>{{field.titleText_desc|raw}}</p>
+              </div>
+            
+            </div>
+              {% else %}
+
+              
+            {% endif %}  
+          </div>
+        </div>
+      </div>
+  
+    {% else %}  
+  {% endif %}  
+
+    
+  {% if field.trippleBlock_is_active %}
+    <div class="section">
+      <div class="container">
+
+        
+        <div class="count-items">
+          <div class="count-items__wrap">
+            
+            {% for item in field.trippleBlock_item %}
+              {% if item.is_active %}
+                <div class="count-items__item">
+                  <div class="count-items__count"></div>
+                  <p>{{item.trippleBlock_title|raw}}</p>
+                  <div class="count-items__hiddent">
+                    <div class="count-items__count"></div>
+                    <p>{{item.trippleBlock_title|raw}}</p>
+                    <div class="count-items__desc">
+                      <p>{{item.trippleBlock_desc|raw}}</p>
+                      <a href="#">{{'Learn More'|_}} <svg class="icon">
+                          <use xlink:href="{{'assets/sprite.svg#arrow'|theme}}"></use>
+                        </svg>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+                {% else %}
+              
+              {% endif %}
+            {% endfor %}
+
+            </div>
+          </div>
+
+
+      </div>
+    </div>
+
+    {% else %}
+              
+  {% endif %} 
+
+  {% if field.textImg_blur_is_active %}
+    
+    <div class="container">
+      <div class="txt-img-blur typical-block 
+        {% if field.textImg_blur_is_outBounds %}
+          txt-img-blur--out-of-bounds
+          {% else %}
+        {% endif %}
+      ">
+        <div class="col-wrap">
+          <div class="col-wrap__col">
+            <div class="txt-img-blur__text">
+              {% if field.textImg_blur_title_kind %}
+              
+              <div class="title">
+                
+                
+                  {% for title in field.textImg_blur_title_kind %}
+
+                    {% if title.textImg_blur_title_type == 1 %}
+                      <span class="part-sh-invert"> {{ title.textImg_blur_title }} </span>
+                      {% if title.textImg_blur_is_broke %}
+                        <br>  
+                        {% else %}
+                      {% endif %}
+                      {% elseif title.textImg_blur_title_type == 2 %}
+                      <span class="part-sh"> {{ title.textImg_blur_title }} </span>
+                      {% if title.textImg_blur_is_broke %}
+                        <br>  
+                        {% else %}
+                      {% endif %}
+                      {% elseif title.textImg_blur_title_type == 3 %}  
+                      <span class="part-mc"> {{ title.textImg_blur_title }} </span>
+                      {% if title.textImg_blur_is_broke %}
+                        <br>  
+                        {% else %}
+                      {% endif %}
+                      {% else %}
+
+                    {% endif %}  
+                    
+                  {% endfor %}
+
+                </div>
+                {% else %}
+              {% endif %}  
+
+              {% if field.textImg_blur_desc %}
+                {{ field.textImg_blur_desc | raw }}
+                {% else %}
+              {% endif %}
+              {% if field.textImg_blur_btn_link %}
+                  <br>
+                <a class="btn btn--accent" href="{{field.textImg_blur_btn_link}}">{{field.textImg_blur_btn_text}}</a>
+                {% else %}  
+              {% endif %}  
+            </div>
+          </div>
+          {% if field.textImg_blur_img %}
+            <div class="col-wrap__col">
+              <div class="txt-img-blur__img">
+                <img loading="lazy" src="{{field.textImg_blur_img | media | resize(277, auto, { mode: 'crop', quality: '80', extension: 'webp' })}}" alt="" with="277" height="207">
+              </div>
+            </div>
+            {% else %}  
+          {% endif %}  
+        </div>
+      </div>
+    </div>  
+    
+
+    {% else %}
+  {% endif %}
+
+  {% if field.titleSubtitle_is_active %}
+    <div class="section 
+      {% if field.titleSubtitle_is_centered %}
+        tac  
+        {% else %}
+      {% endif %}
+    ">
+      <div class="container">
+
+        {% if field.titleSubtitle_title_kind %}
+                
+          <div class="title title--drop-shadow">
+            
+            
+              {% for title in field.titleSubtitle_title_kind %}
+
+                {% if title.titleSubtitle_title_type == 1 %}
+                  <span class="part-sh-invert"> {{ title.titleSubtitle_title }} </span>
+                  {% if title.titleSubtitle_is_broke %}
+                    <br>  
+                    {% else %}
+                  {% endif %}
+                  {% elseif title.titleSubtitle_title_type == 2 %}
+                  <span class="part-sh"> {{ title.titleSubtitle_title }} </span>
+                  {% if title.titleSubtitle_is_broke %}
+                    <br>  
+                    {% else %}
+                  {% endif %}
+                  {% elseif title.titleSubtitle_title_type == 3 %}  
+                  <span class="part-mc"> {{ title.titleSubtitle_title }} </span>
+                  {% if title.titleSubtitle_is_broke %}
+                    <br>  
+                    {% else %}
+                  {% endif %}
+                  {% else %}
+
+                {% endif %}  
+                
+              {% endfor %}
+
+            </div>
+            {% else %}
+          {% endif %}  
+
+          {% if field.titleSubtitle_desc %}
+           {{field.titleSubtitle_desc|raw}}
+            {% else %}
+          {% endif %}
+
+      </div>
+    </div>
+    {% else %}
+  {% endif %}
+
+  {% if field.transfer_is_active %}
+    <div class="transfer">
+      <div class="transfer__desc">
+        <div class="tab">
+          <div class="tabs">
+            {% for item in field.transfer_item %}
+              {% if item.is_active %}
+                <div class="tab-item">
+                  <a class="accentcolor" href="#">{{item.transfer_tab}}</a>
+                </div>
+                {% else %}  
+              {% endif %}  
+            {% endfor %}  
+          </div>
+          <div class="tab-content">
+            
+            {% for item in field.transfer_item %}
+              {% if item.is_active %}
+                <div class="tab-content-item">
+
+                    <div class="transfer__total">
+                    <div class="transfer__total-item typical-block">
+                      <div class="transfer__total-title">{{item.transfer_tab_currency_title1}}</div>
+                      <div class="transfer__total-sum">{{item.transfer_tab_currency_summ1}}</div>
+                      <div class="transfer__total-currency">{{item.transfer_tab_currency1}}</div>
+                    </div>
+                    <div class="transfer__total-item typical-block">
+                      <div class="transfer__total-title">{{item.transfer_tab_currency_title2}}</div>
+                      <div class="transfer__total-sum">{{item.transfer_tab_currency_summ2}}</div>
+                      <div class="transfer__total-currency">{{item.transfer_tab_currency2}}</div>
+                    </div>
+                  </div>
+                  {{item.transfer_tab_desc|raw}}
+                </div>
+              {% endif %}    
+            {% endfor %}  
+
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    {% else %}
+  {% endif %}
+
+  {% if field.numberedList_is_active %}
+  
+    <div class="container">
+      <div class="block-count-icon
+        {% if field.numberedList_is_changed %}
+          block-count-icon--flooded-bg
+          {% else %}  
+        {% endif %}  
+      ">
+        {% for item in field.numberedList_item %}
+          {% if item.numberedList_item_is_active %}
+            <div class="block-count-icon__item
+              {% if field.numberedList_is_changed %}
+                typical-block
+                {% else %}  
+              {% endif %}  
+            ">
+            <div class="block-count-icon__item-icon">
+              <svg class="icon icon--stroke">
+                <use xlink:href="{{'assets/sprite.svg'|theme}}#{{item.numberedList_item_icon}}"></use>
+              </svg>
+            </div>
+            <div>
+              <div class="block-count-icon__item-title">{{item.numberedList_item_title}}</div>
+              <div class="block-count-icon__item-desc">{{item.numberedList_item_desc}}</div>
+            </div>
+            </div>
+            {% else %}  
+            
+          {% endif %}  
+        {% endfor %}  
+      </div>
+    </div>
+    
+    {% else %}
+  {% endif %}
+  
+  
+  {% if field.iconicList_is_active %}
+    <div class="section">
+      <div class="container">
+        <div class="payment-system">
+          <div class="payment-system__list">
+           
+              {% for item in field.iconicList_item %}
+                {% if item.iconicList_item_is_active %}
+                  <div class="payment-system__list-item">
+                    <div class="payment-system__list-logo">
+                      <img loading="lazy" src="{{item.iconicList_item_img | media | resize(40, 40, { mode: 'crop', quality: '80', extension: 'webp' })}}" alt="">
+                    </div>
+                    <div class="payment-system__list-name">{{item.iconicList_item_title}}</div>
+                  </div>
+                  {% else %}
+                {% endif %}
+              {% endfor %}
+       
+          </div>
+        </div>
+      </div>
+    </div>
+    {% else %}  
+  {% endif %}
+  
+  {% if field.callback_is_active %}
+    <div class="section">
+      <div class="feedback">
+        <div class="container-lg">
+          <form data-request="{{ genericForm }}::onFormSubmit" id=form_id>
+            {{ form_token() }}
+            <div class="feedback__form">
+              <div class="feedback__form-col">
+                <textarea class="feedback__textarea typical-block" placeholder="{{'Describe your question in detail...'|_}}"></textarea>
+              </div>
+              <div class="feedback__form-col">
+                <div id="{{ genericForm }}_forms_flash"></div>
+                <h3 class="tac">{{'AIZEN Support'|_}}</h3>
+                <div class="input">
+                  <input placeholder="{{'Name'|_}}" name="Имя">
+                </div>
+                <div class="input">
+                  <input placeholder="Email" name="email">
+                </div>
+                
+                <button class="btn btn--light" id="simpleContactSubmitButton" type="submit" >{{'Send'|_}}</button>
+              </div>
+            </div>
+          </form>
+
+
+          
+        </div>
+      </div>
+    </div>
+    {% else %}
+  {% endif %}
+   
+{% if field.hero2imgs_is_active %}  
+  <div class="hero-full-height">
+    <div class="container-lg">
+      <div class="hero-full-height__wrap">
+        <img src="{{field.hero2imgs_img_left | media | resize(380, auto, { mode: 'crop', quality: '80', extension: 'webp' })}}" alt="">
+        
+          <div class="tac">
+            {% if field.hero2imgs_title_kind %}
+              
+                <div class="title title--drop-shadow tac">
+                
+                
+                  {% for title in field.hero2imgs_title_kind %}
+
+                    {% if title.hero2imgs_title_type == 1 %}
+                      <span class="part-sh-invert"> {{ title.hero2imgs_title }} </span>
+                      {% if title.hero2imgs_is_broke %}
+                        <br>  
+                        {% else %}
+                      {% endif %}
+                      {% elseif title.hero2imgs_title_type == 2 %}
+                      <span class="part-sh"> {{ title.hero2imgs_title }} </span>
+                      {% if title.hero2imgs_is_broke %}
+                        <br>  
+                        {% else %}
+                      {% endif %}
+                      {% elseif title.hero2imgs_title_type == 3 %}  
+                      <span class="part-mc"> {{ title.hero2imgs_title }} </span>
+                      {% if title.hero2imgs_is_broke %}
+                        <br>  
+                        {% else %}
+                      {% endif %}
+                      {% else %}
+
+                    {% endif %}  
+                    
+                  {% endfor %}
+                  
+                  
+                </div>
+              
+              {% else %}
+            {% endif %}   
+
+            {% if field.hero2imgs_btn_link %}
+              <a class="btn btn--light" href="{{field.hero2imgs_btn_link}}">{{field.hero2imgs_btn_title}}</a>
+              {% else %}  
+            {% endif %}  
+                <br>
+                <br>
+            {% if field.hero2imgs_desc %}
+              {{field.hero2imgs_desc|raw}}
+              {% else %}
+            {% endif %}
+          
+          </div>
+           
+
+        <img src="{{field.hero2imgs_img_right | media | resize(380, auto, { mode: 'crop', quality: '80', extension: 'webp' })}}" alt="">
+      </div>
+    </div>
+  </div>
+  {% else %}  
+{% endif %}  
+
+
+{% if field.trippleBlock_bg_is_active %}
+  <div class="section">
+    <div class="container">
+      <div class="triple-block">
+        {% for item in field.trippleBlock_bg_item %}
+          {% if item.is_active %}
+            <div class="triple-block__item-wrap">
+              <div class="triple-block__item">
+                <div class="triple-block__item-title">{{item.trippleBlock_bg_title}}</div>
+                <div class="triple-block__item-desc">{{item.trippleBlock_bg_desc|raw}}</div>
+                <svg class="icon">
+                  <use xlink:href="{{'assets/sprite.svg#crypto'|theme}}{{item.trippleBlock_bg_icon}}"></use>
+                </svg>
+              </div>
+            </div>
+            {% else %}  
+          {% endif %}  
+        {% endfor %}  
+      </div>
+    </div>
+  </div>
+  {% else %}
+{% endif %}
+
+
+{% if field.iconTabs_is_active %}
+  <div class="section">
+    <div class="container">
+
+    <div class="clickable-tabs">
+      <div class="tab tabs-aizen">
+        <div class="tabs">
+          {% for item in field.iconTabs_item %}
+            {% if item.iconTabs_item_is_active %}
+              <div class="tab-item">
+                <a href="#">
+
+                  {% if item.iconTabs_icon %}
+                    <svg class="icon">
+                      <use xlink:href="{{'assets/sprite.svg'|theme}}#{{item.iconTabs_icon}}"></use>
+                    </svg>
+                    {% else %}
+                  {% endif %}
+
+                  {% if item.iconTabs_icon_img %}
+                    <img src="{{ item.iconTabs_desc_img| media | resize(60, 60, { mode: 'crop', quality: '80', extension: 'webp' }) }}" alt="">
+                    {% else %}
+                  {% endif %}
+                  
+                  <span>{{item.iconTabs_title}}</span>
+                </a>
+              </div>
+              {% else %}  
+            {% endif %}  
+          {% endfor %}  
+        </div>
+        <div class="tab-content">
+          {% for item in field.iconTabs_item %}
+            {% if item.iconTabs_item_is_active %}
+              <div class="tab-content-item">
+                <div class="tabs-aizen__item">
+              <div class="tabs-aizen__img">
+                <img src="{{ item.iconTabs_desc_img| media | resize(380, auto, { mode: 'crop', quality: '80', extension: 'webp' }) }}" alt="">
+              </div>
+              <div class="tabs-aizen__desc">
+                {{item.iconTabs_desc_text|raw}}
+                <br>
+                <div class="tabs-aizen__btn-wrap">
+                  {% for btn in item.iconTabs_desc_btns %}
+                    {% if btn.iconTabs_btn_link %}
+                      <a class="btn btn--accent" href="{{btn.iconTabs_btn_link}}">{{btn.iconTabs_btn_title}}</a>
+                      {% else %}
+                    {% endif %}
+                  {% endfor %}
+                </div>
+              </div>
+                </div>
+              </div>
+              {% else %}  
+            {% endif %}  
+          {% endfor %}  
+          
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+  {% else %}
+{% endif %}
+
+
+{% endfor %}

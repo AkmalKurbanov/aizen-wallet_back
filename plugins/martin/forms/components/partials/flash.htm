@@ -1,0 +1,50 @@
+{% spaceless %}
+    <style>
+     .alert.alert-success{
+        color: green;
+     }   
+     .alert.alert-danger {
+        color: red;
+     }
+     .alert .close{
+        position: absolute;
+        right: 10px;
+        top: 5px;
+        color: #fff;
+        cursor: pointer;
+     }
+    .alert.typical-block{
+        padding: 15px;
+    }
+    </style>   
+    <div class="alert alert-{{ type }} alert-dismissible tac typical-block" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+
+    {% if title %}
+        <h4>{{ title }}</h4>
+    {% endif %}
+
+    {% if content %}
+        <p>{{ content }}</p>
+    {% endif %}
+
+    <!-- {% if list %}
+        <ul>
+        {% for item in list %}
+            <li>{{ item }}</li>
+        {% endfor %}
+        </ul>
+    {% endif %} -->
+
+    </div>
+
+    {% if jscript %}
+        <script>
+            {% if errors %}
+                var errors = JSON.parse('{{ errors|raw }}');
+            {% endif %}
+            {{ jscript|raw }}
+        </script>
+    {% endif %}
+
+{% endspaceless %}

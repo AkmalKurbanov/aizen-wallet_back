@@ -1,0 +1,11 @@
+plugin:
+    name: 'aizen.menuheader::lang.plugin.name'
+    description: 'aizen.menuheader::lang.plugin.description'
+    author: Aizen
+    icon: wn-icon-list-alt
+    replaces: {  }
+navigation:
+    MenuHeader:
+        label: Меню
+        url: aizen/menuheader/menuheader
+        icon: icon-list-alt

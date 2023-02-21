@@ -1,0 +1,11 @@
+name: MenuHeader
+modelClass: Aizen\Menuheader\Models\MenuHeader
+form: $/aizen/menuheader/models/menuheader/fields.yaml
+defaultRedirect: aizen/menuheader/menuheader
+create:
+    redirect: 'aizen/menuheader/menuheader/update/:id'
+    redirectClose: aizen/menuheader/menuheader
+update:
+    redirect: aizen/menuheader/menuheader
+    redirectClose: aizen/menuheader/menuheader
+preview: {  }

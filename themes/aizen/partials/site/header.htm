@@ -1,0 +1,293 @@
+[viewBag]
+
+[builderList MenuHeader]
+modelClass = "Aizen\Menuheader\Models\MenuHeader"
+scope = "-"
+scopeValue = "{{ :scope }}"
+displayColumn = "a"
+noRecordsMessage = "Записи не найдены"
+detailsPage = "-"
+detailsUrlParameter = "id"
+pageNumber = "{{ :page }}"
+
+[alternateHrefLangElements]
+
+[localePicker]
+forceUrl = 0
+==
+<?php
+function onStart()
+{
+    $this['backendUrl'] = Backend::url('/');
+}
+?>
+==
+<header class="header">
+  <div class="container-lg">
+    <div class="header__wrap">
+      <div class="header__col">
+        <div class="header__logo">
+          <a href="{{'home'|staticPage }}">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 64" fill="none">
+              <path d="M-6.53861e-06 50.6934C1.62832 47.4619 4.0306 45.6558 7.6692 45.646C13.107 45.6265 18.5448 45.6265 23.9826 45.6167C24.7163 45.6167 25.4501 45.6167 26.5457 45.6167L24.7722 41.0988C19.043 41.0402 11.5792 41.0965 5.85995 41.0868C5.23676 41.0868 4.61358 41.0868 3.71901 41.0868C4.0105 40.2277 4.19142 39.6028 4.4226 38.9878C7.36766 31.1971 11.0323 21.0973 13.9673 13.2969C13.9673 13.2969 14.1523 13.3019 16.042 13.3019C19.5298 13.2921 19.5016 13.3019 19.5016 13.3019C21.4616 18.3981 24.6661 26.4719 26.616 31.5778C26.7467 31.9293 26.8171 32.3003 26.9276 32.6908C23.1383 32.8372 21.3692 31.4704 19.8917 28.1413C18.8765 25.8471 17.9518 23.6505 16.7054 20.7704C16.2531 21.942 15.7907 23.1135 15.3384 24.285C14.0418 27.6434 11.828 33.1813 10.5414 36.5494L13.1767 36.5494L28.4617 36.5494L33.7324 50.7031C22.4548 50.6934 11.338 50.6934 -6.53861e-06 50.6934Z"></path>
+              <path d="M-6.53861e-06 50.6934C1.62832 47.4619 4.0306 45.6558 7.6692 45.646C13.107 45.6265 18.5448 45.6265 23.9826 45.6167C24.7163 45.6167 25.4501 45.6167 26.5457 45.6167L24.7722 41.0988C19.043 41.0402 11.5792 41.0965 5.85995 41.0868C5.23676 41.0868 4.61358 41.0868 3.71901 41.0868C4.0105 40.2277 4.19142 39.6028 4.4226 38.9878C7.36766 31.1971 11.0323 21.0973 13.9673 13.2969C13.9673 13.2969 14.1523 13.3019 16.042 13.3019C19.5298 13.2921 19.5016 13.3019 19.5016 13.3019C21.4616 18.3981 24.6661 26.4719 26.616 31.5778C26.7467 31.9293 26.8171 32.3003 26.9276 32.6908C23.1383 32.8372 21.3692 31.4704 19.8917 28.1413C18.8765 25.8471 17.9518 23.6505 16.7054 20.7704C16.2531 21.942 15.7907 23.1135 15.3384 24.285C14.0418 27.6434 11.828 33.1813 10.5414 36.5494L13.1767 36.5494L28.4617 36.5494L33.7324 50.7031C22.4548 50.6934 11.338 50.6934 -6.53861e-06 50.6934Z" fill="#5740A0"></path>
+              <path class="hide-part" d="M47.8762 38.5H60.3734L59.7992 34.7139H48.4504L47.8762 38.5ZM54.0572 27.9794L57.6037 36.1211L57.5362 37.3273L60.576 43.8273H66.0478L54.0572 19L42.0667 43.8273H47.5046L50.612 37.1263L50.5107 36.0541L54.0572 27.9794Z" fill="#5740A0"></path>
+              <path class="hide-part" d="M68.6126 20.3737V43.8273H73.5102V20.3737H68.6126Z" fill="#5740A0"></path>
+              <path class="hide-part" d="M77.7288 24.6959H87.8616L76.4115 43.8273H94.6169V39.6392H84.0787L95.664 20.3737H77.7288V24.6959Z" fill="#5740A0"></path>
+              <path class="hide-part" d="M101.835 43.8273H113.758V39.7732H101.835V43.8273ZM101.835 24.4278H113.758V20.3737H101.835V24.4278ZM101.835 33.3737H113.082V29.3866H101.835V33.3737ZM98.7276 20.3737V43.8273H103.389V20.3737H98.7276Z" fill="#5740A0"></path>
+              <path class="hide-part" d="M135.339 20.3737V34.9149L118.518 19.201V43.8273H123.179V29.2861L140 45V20.3737H135.339Z" fill="#5740A0"></path>
+            </svg>
+          </a>
+        </div>
+        <div class="header__menu">
+            
+         
+          
+          {% for record in records %}
+            
+            <div class="header__menu-item 
+            
+              {% if record.inslide_item_list %}
+                has-attachment
+                {% else %}
+              {% endif %}
+            ">
+              <span class="attachment-trigger-js attachment-trigger-js--hover">
+                <a href="{{record.basefile}}">
+                  {{record.item}}
+                </a>
+                
+                {% if record.inslide_item_list %}
+                  <svg class="icon icon--stroke">
+                    <use xlink:href="{{'assets/sprite.svg#angle'|theme}}"></use>
+                  </svg>
+                  {% else %}
+                {% endif %}
+              
+              </span>
+
+                {% if record.slider_tabs %}
+                  <div class="header__item-content tab dropdown">
+                    <div class="header__content-col">
+                      <div class="header__content-tabs tabs">
+                        {% for subItem in record.inslide_item_list %}
+                          <div class="header__content-item tab-item">
+                            <div class="header__content-item-title">
+                              <a href="{{subItem.basefile}}">{{subItem.inside_item}}</a>
+                            </div>
+                            <div class="header__content-item-desc">{{subItem.inslide_item_short_desc}}</div>
+                          </div>
+                        {% endfor %}
+                      </div>
+                    </div>
+                    <div class="header__content-col">
+                      <div class="header__content-info">
+                        <div class="header__content-tab-content tab-content">
+                          {% for subItem in record.inslide_item_list %}
+                            <div class="header__content-tab-item tab-content-item">
+                              <div class="header__content-inside-wrap">
+                                <div class="header__content-info-slider">
+                                  <div class="swiper menu-nav-js">
+                                    <div class="swiper-pagination"></div>
+                                    <div class="swiper-wrapper">
+                                      {% for slide in subItem.inside_item_slide_list %}
+                                        {% if slide.slide_is_active %}
+                                          <div class="swiper-slide">
+                                            <div class="header__content-desc-wrap">
+                                              <div class="header__content-item-title">
+                                                <span>{{slide.slide_title}}</span>
+                                              </div>
+                                              <div class="header__content-item-desc">{{slide.slide_desc}}</div>
+                                            </div>
+                                            <div class="header__content-slider-img">
+                                              <img loading="lazy" src="{{slide.slide_img | media | resize(240, auto, { mode: 'crop', quality: '80', extension: 'webp' })}}" alt="">
+                                            </div>
+                                            <a class="btn btn--light btn--full" href="
+                                              {% if slide.slide_link %}
+                                                {{slide.slide_link}}
+                                                {% else %}
+                                                {{slide.basefile|replace({' ': '' })}}
+                                              {% endif %}                                            
+                                            "
+                                              {% if slide.is_target %}
+                                                target='_blank'
+                                                {% else %}
+                                              {% endif %}
+                                            >{{'Подробнее'|_}} </a>
+                                          </div>
+                                          {% else %}
+                                        {% endif %}
+                                      {% endfor %}
+                                    </div>
+                                  </div>                                
+                                </div>
+                              </div>
+                            </div> 
+                          {% endfor %}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  {% else %}
+                    <div class="header__item-dropdown dropdown"> 
+                        <ul> 
+                          {% for subItem in record.inslide_item_list %}
+                            <li>
+                               <a href="{{subItem.link_inside_item}}">{{subItem.inside_item}}</a>
+                            </li>
+                          {% endfor %}
+                        </ul>
+                    </div>
+                {% endif %}
+                
+     
+
+              
+              
+              </div>
+            
+            
+          {% endfor %}
+       
+        </div>
+      </div>
+      <div class="header__col">
+        <div class="header__col-control">
+          {% for registration in this.theme.registration_collapse %}
+            {% if registration.registration_is_active %}
+              <a class="btn btn--light" href="{{registration.registration_link}}" target="_blank">{{'Sign up'|_}}</a> 
+              {% else %}
+            {% endif %}
+          {% endfor %}
+          <div class="header__lang">
+            <div class="header__lang-seleced">
+              <img loading="lazy" src="{{('assets/images/'~activeLocale~'.webp')|trans|theme}}" alt="">
+              <svg class="icon icon--stroke">
+                <use xlink:href="{{'assets/sprite.svg#angle'|theme}}"></use>
+              </svg>
+            </div>
+            <div class="header__lang-dropdown dropdown">
+              <p>{{'Choose language'|_}}</p>
+              <div class="header__lang-list">
+                
+              {% component 'alternateHrefLangElements' %}
+             
+             </div>
+            </div>
+          </div>
+          
+          <div class="hamburger">
+            <span></span>
+          </div>
+          <!-- <a class="header__user-control" href="#"><div class="header__user-icon"><svg class="icon icon--stroke"><use xlink:href="{{'assets/sprite.svg#profile'|theme}}"></use></svg></div><span>{{'Log in'|_}}</span></a> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<div class="slide-menu">
+  <div class="header__menu">
+
+    {% for record in records %}
+      
+      <div class="header__menu-item
+          {% if record.inslide_item_list %}
+            has-attachment
+            {% else %}
+          {% endif %}
+        ">
+          <span class="attachment-trigger-js attachment-trigger-js--hover">
+            
+            <a href="{{record.link}}">
+              {{record.item}}
+            </a>
+            
+            {% if record.inslide_item_list %}
+              <svg class="icon icon--stroke">
+                <use xlink:href="{{'assets/sprite.svg#angle'|theme}}"></use>
+              </svg>
+              {% else %}
+            {% endif %}
+            
+          </span>
+          {% if record.slider_tabs %}
+            <div class="header__item-content tab dropdown">
+              <div class="header__content-col">
+                <div class="header__content-tabs tabs">
+                  {% for subItem in record.inslide_item_list %}
+                    <div class="header__content-item tab-item">
+                      <div class="header__content-item-title">
+                        <a href="{{subItem.link_inside_item}}">{{subItem.inside_item}}</a>
+                      </div>
+                      <div class="header__content-item-desc">{{subItem.inslide_item_short_desc}}</div>
+                    </div>
+                  {% endfor %}
+                </div>
+              </div>
+              <div class="header__content-col">
+                <div class="header__content-info">
+                  <div class="header__content-tab-content tab-content">
+                    {% for subItem in record.inslide_item_list %}
+                      <div class="header__content-tab-item tab-content-item">
+                        <div class="header__content-inside-wrap">
+                          <div class="header__content-info-slider">
+                            <div class="swiper menu-nav-js">
+                              <div class="swiper-pagination"></div>
+                              <div class="swiper-wrapper">
+                                {% for slide in subItem.inside_item_slide_list %}
+                                  <div class="swiper-slide">
+                                    <div class="header__content-desc-wrap">
+                                      <div class="header__content-item-title">
+                                        <span>{{slide.slide_title}}</span>
+                                      </div>
+                                      <div class="header__content-item-desc">{{slide.slide_desc}}</div>
+                                    </div>
+                                    <div class="header__content-slider-img">
+                                      <img loading="lazy" src="{{slide.slide_img | media | resize(240, auto, { mode: 'crop', quality: '80', extension: 'webp' })}}" alt="">
+                                    </div>
+                                    <a class="btn btn--light btn--full" href="">{{'Подробнее'|_}} </a>
+                                  </div>
+                                {% endfor %}
+                              </div>
+                            </div>                                
+                          </div>
+                        </div>
+                      </div> 
+                    {% endfor %}
+                  </div>
+                </div>
+              </div>
+            </div>
+            {% else %}
+              <div class="header__item-dropdown dropdown"> 
+                  <ul> 
+                    {% for subItem in record.inslide_item_list %}
+                      <li>
+                          <a href="{{subItem.link_inside_item}}">{{subItem.inside_item}}</a>
+                      </li>
+                    {% endfor %}
+                  </ul>
+              </div>
+          {% endif %}
+        </div>
+      
+      {% endfor %}  
+
+  </div>
+  <div class="header__col-control">
+    <!-- <a class="header__user-control" href="#">
+      <div class="header__user-icon">
+        <svg class="icon icon--stroke">
+          <use xlink:href="#profile"></use>
+        </svg>
+      </div>
+      <span>Войти</span>
+    </a> -->
+    {% for registration in this.theme.registration_collapse %}
+      {% if registration.registration_is_active %}
+        <a class="btn btn--light" href="{{registration.registration_link}}" target="_blank">{{'Sign up'|_}}</a> 
+        {% else %}
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>

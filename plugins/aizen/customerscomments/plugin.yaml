@@ -1,0 +1,11 @@
+plugin:
+    name: 'aizen.customerscomments::lang.plugin.name'
+    description: 'aizen.customerscomments::lang.plugin.description'
+    author: Aizen
+    icon: wn-icon-comments
+    replaces: {  }
+navigation:
+    CustomersComments:
+        label: 'Отзывы клиентов'
+        url: aizen/customerscomments/customerscomments
+        icon: icon-comments
